@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="FlappyBird_Clone"
+run/main_scene="uid://ky7l6d21icp"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=854
+window/stretch/mode="canvas_items"
 
 [rendering]
 
