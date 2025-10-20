@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj5mbjrlv4m3u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_exqad"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qfl2k"]
+
+[node name="barrier" type="StaticBody2D"]
+
+[node name="floor" type="CollisionShape2D" parent="."]
+position = Vector2(0, 855)
+shape = SubResource("WorldBoundaryShape2D_exqad")
+
+[node name="ceiling" type="CollisionShape2D" parent="."]
+position = Vector2(1, -9)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_qfl2k")
