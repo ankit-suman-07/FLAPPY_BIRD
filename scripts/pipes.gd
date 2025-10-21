@@ -1,6 +1,7 @@
 extends Node2D
 
 const SPEED: float = 120.0
+const OFF_SCREEN: float = 100.0
 
 
 func _ready() -> void:
@@ -9,9 +10,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.x -= SPEED * delta
 	
+	if position.x < get_viewport_rect().position.x - OFF_SCREEN:
+		die()
 	
+func die() -> void:
+	set_process(false)
+	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	print("Pipe exited!!!!!")
-	set_process(false)
-	queue_free()
+	die()
