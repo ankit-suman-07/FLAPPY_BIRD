@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm621q6roibev"]
+
+[ext_resource type="Texture2D" uid="uid://b0xd5bk668hsf" path="res://assets/background/sky.png" id="1_sugp2"]
+[ext_resource type="LabelSettings" uid="uid://t6g6ery78lwy" path="res://resources/red_font_48.tres" id="2_jyhfs"]
+[ext_resource type="FontFile" uid="uid://fnbx65e2chw8" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_tbgi4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
+font = ExtResource("3_tbgi4")
+font_size = 48
+font_color = Color(1, 1, 0.93333334, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
+font = ExtResource("3_tbgi4")
+font_size = 24
+font_color = Color(1, 0.3529412, 0.3019608, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sugp2")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="gameTitle" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Flappy Plane"
+label_settings = ExtResource("2_jyhfs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="centerText" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Click to play"
+label_settings = SubResource("LabelSettings_tefeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "HighScore"
+label_settings = SubResource("LabelSettings_sugp2")
