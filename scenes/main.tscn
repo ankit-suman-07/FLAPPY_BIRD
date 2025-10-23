@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm621q6roibev"]
+[gd_scene load_steps=9 format=3 uid="uid://cm621q6roibev"]
 
 [ext_resource type="Texture2D" uid="uid://b0xd5bk668hsf" path="res://assets/background/sky.png" id="1_sugp2"]
 [ext_resource type="LabelSettings" uid="uid://t6g6ery78lwy" path="res://resources/red_font_48.tres" id="2_jyhfs"]
 [ext_resource type="FontFile" uid="uid://fnbx65e2chw8" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://d36yg5ac3s6jx" path="res://assets/audio/bgm_menu.mp3" id="4_jyhfs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
 font = ExtResource("3_tbgi4")
@@ -15,6 +16,28 @@ outline_color = Color(0, 0, 0, 1)
 font = ExtResource("3_tbgi4")
 font_size = 24
 font_color = Color(1, 0.3529412, 0.3019608, 1)
+
+[sub_resource type="Animation" id="Animation_sugp2"]
+resource_name = "flash"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/playGame:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16666667, 0.3018242, 0.4059792, 0.5025395, 0.6012697),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.02745098), Color(1, 1, 1, 0.1764706), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyhfs"]
+_data = {
+&"flash": SubResource("Animation_sugp2")
+}
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -53,10 +76,12 @@ label_settings = ExtResource("2_jyhfs")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="centerText" type="Label" parent="MarginContainer"]
+[node name="playGame" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Click to play"
+text = "Press Space
+To
+Play"
 label_settings = SubResource("LabelSettings_tefeu")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -67,3 +92,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "HighScore"
 label_settings = SubResource("LabelSettings_sugp2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jyhfs")
+}
+autoplay = "flash"
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jyhfs")
+volume_db = -10.0
+autoplay = true
