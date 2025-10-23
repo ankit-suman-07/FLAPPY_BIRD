@@ -1,6 +1,7 @@
 extends Node2D
 
 const PIPES = preload("uid://cp2brgy51xf6q")
+var MAIN = load("uid://cm621q6roibev")
 
 
 @onready var pipes_holder: Node = $pipesHolder
@@ -29,4 +30,9 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func _on_plane__on_plane_died() -> void:
-	get_tree().paused = true
+	#get_tree().paused = true
+	pass
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		get_tree().change_scene_to_packed(MAIN)
