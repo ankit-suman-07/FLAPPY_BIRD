@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://w31do10g65j7"]
+[gd_scene load_steps=6 format=3 uid="uid://w31do10g65j7"]
 
+[ext_resource type="Script" uid="uid://bab7frvvo2ksj" path="res://scripts/game_ui.gd" id="1_rns2u"]
 [ext_resource type="FontFile" uid="uid://fnbx65e2chw8" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_yubou"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rns2u"]
@@ -16,12 +17,14 @@ font = ExtResource("1_yubou")
 font_size = 48
 
 [node name="gameUI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rns2u")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

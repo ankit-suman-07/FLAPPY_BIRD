@@ -30,9 +30,4 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func _on_plane__on_plane_died() -> void:
-	#get_tree().paused = true
-	pass
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("exit"):
-		get_tree().change_scene_to_packed(MAIN)
+	get_tree().paused = true
