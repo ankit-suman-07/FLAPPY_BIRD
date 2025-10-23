@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ky7l6d21icp"]
+[gd_scene load_steps=6 format=3 uid="uid://ky7l6d21icp"]
 
 [ext_resource type="Script" uid="uid://kaiw8s3ce45p" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://b2w7autktooxr" path="res://assets/background/rocks_2.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bax47sjm34lu8" path="res://scenes/plane.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bj5mbjrlv4m3u" path="res://scenes/barrier.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://w31do10g65j7" path="res://scenes/game_ui.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -28,6 +29,10 @@ position = Vector2(650, 284)
 
 [node name="lowerMarker" type="Marker2D" parent="."]
 position = Vector2(650, 608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="gameUI" parent="CanvasLayer" instance=ExtResource("5_iywne")]
 
 [connection signal="_on_plane_died" from="plane" to="." method="_on_plane__on_plane_died"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]

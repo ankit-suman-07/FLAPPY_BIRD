@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://w31do10g65j7"]
+
+[ext_resource type="FontFile" uid="uid://fnbx65e2chw8" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_yubou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rns2u"]
+font = ExtResource("1_yubou")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_u001w"]
+font = ExtResource("1_yubou")
+font_size = 48
+font_color = Color(1, 0.3529412, 0.3019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2dgd"]
+font = ExtResource("1_yubou")
+font_size = 48
+
+[node name="gameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="score" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.40784314, 0, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_rns2u")
+
+[node name="gameOver" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_u001w")
+
+[node name="playAgain" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play Again"
+label_settings = SubResource("LabelSettings_u2dgd")
