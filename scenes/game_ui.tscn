@@ -47,13 +47,21 @@ text = "0"
 label_settings = SubResource("LabelSettings_rns2u")
 
 [node name="gameOver" type="Label" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Game Over"
 label_settings = SubResource("LabelSettings_u001w")
 
 [node name="playAgain" type="Label" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Play Again"
 label_settings = SubResource("LabelSettings_u2dgd")
+
+[node name="gameOverTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="gameOverTimer" to="." method="_on_game_over_timer_timeout"]
