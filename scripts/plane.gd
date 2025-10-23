@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name PlaneBody
 
-signal _on_plane_died
+#signal _on_plane_died
 
 const JUMP_POWER: float = -350.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -13,8 +13,7 @@ var _gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 func _ready() -> void:
 	print(_gravity)
 
-func _process(delta: float) -> void:
-	pass	
+
 
 func _physics_process(delta: float) -> void:
 	fly(delta)
@@ -34,4 +33,4 @@ func fly(delta: float) -> void:
 func die() -> void:
 	animated_sprite_2d.stop()
 	set_physics_process(false)
-	_on_plane_died.emit()
+	SignalsHub.emit_on_plane_died()
