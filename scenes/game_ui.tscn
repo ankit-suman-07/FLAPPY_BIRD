@@ -43,7 +43,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.40784314, 0, 1)
-text = "0"
+text = "0000"
 label_settings = SubResource("LabelSettings_rns2u")
 
 [node name="gameOver" type="Label" parent="MarginContainer"]
