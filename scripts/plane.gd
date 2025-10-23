@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 class_name PlaneBody
 
-#signal _on_plane_died
 
 const JUMP_POWER: float = -350.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

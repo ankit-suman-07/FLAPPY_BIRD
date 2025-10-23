@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameManager="*res://Globals/gameManager.gd"
 SignalsHub="*res://Globals/signalsHub.gd"
 
 [debug]
