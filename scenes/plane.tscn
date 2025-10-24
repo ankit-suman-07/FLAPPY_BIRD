@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bax47sjm34lu8"]
+[gd_scene load_steps=12 format=3 uid="uid://bax47sjm34lu8"]
 
 [ext_resource type="Script" uid="uid://c86mjpikpclt8" path="res://scripts/plane.gd" id="1_206p1"]
 [ext_resource type="Texture2D" uid="uid://bkpmknw4g1168" path="res://assets/plane/planes_sheet.png" id="1_dt3pm"]
+[ext_resource type="AudioStream" uid="uid://bnpngbd2cpa6" path="res://assets/audio/engine.mp3" id="3_md2q8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_206p1"]
 atlas = ExtResource("1_dt3pm")
@@ -92,3 +93,8 @@ shape = SubResource("CapsuleShape2D_dt3pm")
 libraries = {
 &"": SubResource("AnimationLibrary_n0b6s")
 }
+
+[node name="engineSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_md2q8")
+volume_db = -5.0
+autoplay = true

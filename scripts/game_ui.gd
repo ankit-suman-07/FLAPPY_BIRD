@@ -1,9 +1,13 @@
 extends Control
 
+const GAME_OVER = preload("uid://cy0crp3wmeh6r")
+
 @onready var score: Label = $MarginContainer/score
 @onready var game_over: Label = $MarginContainer/gameOver
 @onready var play_again: Label = $MarginContainer/playAgain
 @onready var game_over_timer: Timer = $gameOverTimer
+@onready var sound: AudioStreamPlayer2D = $sound
+
 
 var _can_press: bool = false
 var _score:int = 0
@@ -23,11 +27,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameManager.load_main_scene()
 
 func on_point_scored() -> void:
+	sound.play()
 	_score += 1
 	score.text = "%04d" % _score
 	
 
 func on_plane_died() -> void:
+	sound.stop()
+	sound.stream = GAME_OVER
+	sound.play()
 	game_over.show()
 	game_over_timer.start()
 
